@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malzama.Krd Admin | داشبۆردی بەڕێوەبەرایەتی مەلزەمە کورد</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <div class="admin-layout">
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div>
+          <div class="sidebar-brand-text">Malzama<span>.Krd</span></div>
+          <div class="sidebar-badge">پنێڵی بەڕێوەبەرایەتی</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-heading">سەرەکی</div>
+        <button class="sidebar-link active" data-section="dashboard">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span>داشبۆردی سەرەکی</span>
+        </button>
+
+        <div class="nav-heading">بەڕێوەبردن</div>
+        <button class="sidebar-link" data-section="books">
+          <i class="fa-solid fa-book"></i>
+          <span>بەڕێوەبردنی کتێبەکان</span>
+        </button>
+        <button class="sidebar-link" data-section="orders">
+          <i class="fa-solid fa-box-archive"></i>
+          <span>داواکارییەکان</span>
+        </button>
+        <button class="sidebar-link" data-section="used">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>کتێبی دەستی دوو</span>
+        </button>
+
+        <div class="nav-heading">سیستەم و ئاگاداری</div>
+        <button class="sidebar-link" data-section="notifications">
+          <i class="fa-solid fa-bullhorn"></i>
+          <span>ئاگاداری و بڵاوکردنەوە</span>
+        </button>
+        <button class="sidebar-link" data-section="settings">
+          <i class="fa-solid fa-sliders"></i>
+          <span>ڕێکخستنەکان</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-user-info">
+          <img src="https://ui-avatars.com/api/?name=Admin+Krd&background=0070f3&color=fff" alt="Admin Avatar" class="admin-avatar">
+          <div>
+            <div class="admin-name">بەڕێوەبەری گشتی</div>
+            <div class="admin-role">Super Admin</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main">
+
+      <!-- Top Header Navigation Bar -->
+      <header class="admin-topbar">
+        <div class="topbar-right">
+          <button class="sidebar-toggle-btn" id="btnToggleSidebar"><i class="fa-solid fa-bars"></i></button>
+          <h1 class="page-title" id="pageTitle">داشبۆردی سەرەکی</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="topbar-icon-btn" id="btnToggleTheme" title="دۆخی تاریک / ڕووناك">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          
+          <a href="index.html" class="btn-store-link">
+            <i class="fa-solid fa-store"></i>
+            <span>سەردانی ماڵپەڕ</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Admin Main Content View Area -->
+      <div class="admin-content">
+
+        <!-- 1. DASHBOARD SECTION -->
+        <section class="admin-section active" id="section-dashboard">
+          
+          <!-- KPI Cards Grid -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div>
+                <div class="kpi-info-title">کۆی داهات (داواکارییەکان)</div>
+                <div class="kpi-value" id="kpiTotalRevenue">0 IQD</div>
+                <div class="kpi-subtext positive"><i class="fa-solid fa-arrow-up"></i> %18 زیادبوونی ئەم مانگە</div>
+              </div>
+              <div class="kpi-icon-box blue"><i class="fa-solid fa-wallet"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div>
+                <div class="kpi-info-title">کۆی داواکارییەکان</div>
+                <div class="kpi-value" id="kpiTotalOrders">0</div>
+                <div class="kpi-subtext positive"><i class="fa-solid fa-check"></i> تۆمارکراو لە سیستەم</div>
+              </div>
+              <div class="kpi-icon-box green"><i class="fa-solid fa-cart-flatbed"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div>
+                <div class="kpi-info-title">کتێبەکانی کتێبخانە</div>
+                <div class="kpi-value" id="kpiTotalBooks">0</div>
+                <div class="kpi-subtext" style="color:var(--primary);"><i class="fa-solid fa-book"></i> چالاک لە ماڵپەڕ</div>
+              </div>
+              <div class="kpi-icon-box gold"><i class="fa-solid fa-books"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div>
+                <div class="kpi-info-title">کتێبی دەستی دوو</div>
+                <div class="kpi-value" id="kpiUsedBooks">0</div>
+                <div class="kpi-subtext" style="color:var(--accent-purple);"><i class="fa-solid fa-users"></i> فرۆشراو لەلایەن خوێندکاران</div>
+              </div>
+              <div class="kpi-icon-box purple"><i class="fa-solid fa-arrows-rotate"></i></div>
+            </div>
+          </div>
+
+          <!-- Dashboard Charts & Analytics Grid -->
+          <div class="dashboard-grid">
+            
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3>دۆخی گەیاندنی داواکارییەکان</h3>
+                <button class="btn-secondary" style="padding:4px 10px; font-size:0.8rem;" onclick="window.adminSwitchSection('orders')">بینیین لە بەشی داواکاری</button>
+              </div>
+              <div class="analytics-bars" id="dashAnalytics">
+                <!-- Injected Dynamically by admin.js -->
+              </div>
+            </div>
+
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3>کردارە خێراکان</h3>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <button class="btn-primary" style="justify-content:center;" onclick="window.openAddBookModal()">
+                  <i class="fa-solid fa-plus"></i> زیادکردنی کتێبی نوێ
+                </button>
+                <button class="btn-secondary" style="justify-content:center;" onclick="window.adminSwitchSection('notifications')">
+                  <i class="fa-solid fa-bullhorn"></i> ناردنی ئاگاداری گشتی
+                </button>
+                <button class="btn-secondary" style="justify-content:center;" onclick="window.adminSwitchSection('orders')">
+                  <i class="fa-solid fa-list-check"></i> بەڕێوەبردنی داواکاریەکان
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Recent Orders Overview -->
+          <div class="admin-card">
+            <div class="card-header-bar">
+              <h3>دواین داواکارییە تۆمارکراوەکان</h3>
+              <button class="btn-secondary" onclick="window.adminSwitchSection('orders')">هەموو داواکارییەکان</button>
+            </div>
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>کۆدی داواکاری</th>
+                    <th>ناوی کریار</th>
+                    <th>کۆی نرخ</th>
+                    <th>بارودۆخ</th>
+                    <th>کردار</th>
+                  </tr>
+                </thead>
+                <tbody id="dashRecentOrders">
+                  <!-- Injected Dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 2. BOOKS CATALOG MANAGEMENT SECTION -->
+        <section class="admin-section" id="section-books">
+          
+          <div class="controls-bar">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchBookAdmin" placeholder="گەڕان بەدوای کتێب ...">
+            </div>
+
+            <div class="filter-pills">
+              <button class="filter-pill-btn book-grade-btn active" data-grade="all">هەموو پۆلەکان</button>
+              <button class="filter-pill-btn book-grade-btn" data-grade="9">پۆلی 9</button>
+              <button class="filter-pill-btn book-grade-btn" data-grade="10">پۆلی 10</button>
+              <button class="filter-pill-btn book-grade-btn" data-grade="11">پۆلی 11</button>
+              <button class="filter-pill-btn book-grade-btn" data-grade="12">پۆلی 12</button>
+            </div>
+
+            <button class="btn-primary" onclick="window.openAddBookModal()">
+              <i class="fa-solid fa-plus"></i> زیادکردنی کتێبی نوێ
+            </button>
+          </div>
+
+          <div class="admin-card">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>بەرگ</th>
+                    <th>ناوی کتێب</th>
+                    <th>پۆل</th>
+                    <th>بابەت</th>
+                    <th>نرخ</th>
+                    <th>کردارەکان</th>
+                  </tr>
+                </thead>
+                <tbody id="booksTableBody">
+                  <!-- Injected Dynamically by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 3. ORDERS MANAGEMENT SECTION -->
+        <section class="admin-section" id="section-orders">
+          
+          <div class="controls-bar">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="searchOrderAdmin" placeholder="گەڕان بەدوای کۆدی داواکاری، ناوی کریار یان ژمارە ...">
+            </div>
+
+            <div class="filter-pills">
+              <button class="filter-pill-btn order-status-btn active" data-status="all">هەموو داواکارییەکان</button>
+              <button class="filter-pill-btn order-status-btn" data-status="لە پرۆسەکردندا">لە پرۆسەکردندا</button>
+              <button class="filter-pill-btn order-status-btn" data-status="لە ڕێگایە">لە ڕێگایە</button>
+              <button class="filter-pill-btn order-status-btn" data-status="گەیەندرا">گەیەندرا</button>
+              <button class="filter-pill-btn order-status-btn" data-status="ڕەتکراوە">ڕەتکراوە</button>
+            </div>
+          </div>
+
+          <div class="admin-card">
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>کۆدی داواکاری</th>
+                    <th>کریار / ژمارە</th>
+                    <th>شار / ناونیشان</th>
+                    <th>کۆی گشتی</th>
+                    <th>ڕێککەوت</th>
+                    <th>گۆڕینی بارودۆخ</th>
+                    <th>کردارەکان</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTableBody">
+                  <!-- Injected Dynamically by admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- 4. USED BOOKS SECTION -->
+        <section class="admin-section" id="section-used">
+          <div class="card-header-bar" style="margin-bottom:16px;">
+            <h3>بەڕێوەبردنی کتێبە دەستی دووەکان</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted);">لەم بەشەدا دەتوانیت سەرپەرشتی دەستی دووی خوێندکاران بکەیت</p>
+          </div>
+
+          <div class="kpi-grid" id="usedBooksGridAdmin">
+            <!-- Injected Dynamically by admin.js -->
+          </div>
+        </section>
+
+        <!-- 5. NOTIFICATIONS SECTION -->
+        <section class="admin-section" id="section-notifications">
+          <div class="dashboard-grid">
+            
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3>ناردنی ئاگاداریی گشتی (Push Notification)</h3>
+              </div>
+              <form id="broadcastNotifForm">
+                <div class="form-group">
+                  <label>سەردێڕی ئاگاداری</label>
+                  <input type="text" id="notifTitle" placeholder="نموونە: داشکاندنی نوێ بۆ کتێبەکان!" required>
+                </div>
+                <div class="form-group">
+                  <label>ناوەرۆکی ئاگاداری</label>
+                  <textarea id="notifDesc" rows="4" placeholder="توضیحاتی ئاگاداری بنووسە..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                  <i class="fa-solid fa-paper-plane"></i> بڵاوکردنەوە بۆ هەمووان
+                </button>
+              </form>
+            </div>
+
+            <div class="admin-card">
+              <div class="card-header-bar">
+                <h3>ئاگادارییە چالاکەکان</h3>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:12px;" id="notifAdminList">
+                <!-- Injected Dynamically -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 6. SETTINGS SECTION -->
+        <section class="admin-section" id="section-settings">
+          <div class="admin-card" style="max-width:600px;">
+            <div class="card-header-bar">
+              <h3>ڕێکخستنەکانی سیستەم</h3>
+            </div>
+            
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:var(--secondary-bg); border-radius:12px;">
+                <div>
+                  <div style="font-weight:700;">سڕینەوە و گەڕاندنەوەی زانیارییە سەرەتاییەکان</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted);">دەتوانیت زانیارییەکانی دەستکاری کراو بگەڕێنیتەوە بۆ دۆخی دروستبوونی سەرەتا</div>
+                </div>
+                <button class="btn-secondary" id="btnResetData" style="color:#ef4444; border-color:#fca5a5;">Reset Data</button>
+              </div>
+
+              <div style="display:flex; align-items:center; justify-content:space-between; padding:12px; background:var(--secondary-bg); border-radius:12px;">
+                <div>
+                  <div style="font-weight:700;">حاڵەتی ماڵپەڕ (Online / Active)</div>
+                  <div style="font-size:0.8rem; color:var(--accent-green);">سەکۆکە ئۆنلاینە و کاردەکات</div>
+                </div>
+                <span class="status-pill delivered">چالاکە</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Global Admin Modal Overlay -->
+  <div class="modal-overlay" id="adminModalOverlay">
+    <div class="modal-card" id="adminModalBody">
+      <!-- Injected Dynamically -->
+    </div>
+  </div>
+
+  <!-- Toast Messages Container -->
+  <div class="toast-container" id="adminToastContainer"></div>
+
+  <!-- Admin Application Logic -->
+  <script src="js/admin.js"></script>
+</body>
+</html>

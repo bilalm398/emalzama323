@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Malzama.Krd | مەلزەمە کورد - سەکۆی سەرەکی کتێب و مەلزەمە</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Header Section -->
+    <header class="site-header">
+      <div class="header-top">
+        <!-- Logo -->
+        <a class="brand-logo" onclick="location.reload()">
+          <div class="logo-icon">
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 28C16 28 6 24.5 3 21.5V6.5C6 9.5 16 11 16 11C16 11 26 9.5 29 6.5V21.5C26 24.5 16 28 16 28Z" fill="url(#logo_grad_1)"/>
+              <path d="M16 11V28" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 11.5C11 12.5 16 13 16 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M25 11.5C21 12.5 16 13 16 13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="logo_grad_1" x1="3" y1="6.5" x2="29" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#0284c7"/>
+                  <stop offset="0.5" stop-color="#0070f3"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="dark">Malzama</span><span class="krd">.Krd</span>
+          </div>
+        </a>
+
+        <!-- Top Right Icons -->
+        <div class="header-actions">
+          <button class="icon-btn" id="headerNotifBtn" title="ئاگادارییەکان">
+            <i class="fa-regular fa-bell"></i>
+            <span class="dot-badge"></span>
+          </button>
+          
+          <button class="icon-btn" id="headerCartBtn" title="سەبەتەی کڕین">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge" id="cartBadge">2</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search Input Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="گەڕان بەدوای مەڵزەمە ...">
+        <button class="search-clear" id="searchClear"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </header>
+
+    <!-- MAIN VIEW (Sereki) -->
+    <main class="page-view active" id="view-sereki">
+      
+      <!-- Top Blue Hero Banner -->
+      <section class="hero-banner">
+        <div class="banner-content">
+          <h1 class="banner-title">خوێندن،<br><span>بە شێوەیەکی ئاسانتر</span></h1>
+          <div class="banner-pill">مەڵزەمەی پۆلی ۱۰ ، ۱۱ و ۱۲</div>
+        </div>
+
+        <div class="banner-illustration">
+          <svg viewBox="0 0 240 180" class="hero-3d-svg" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="heroBookTop" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="100%" stop-color="#0284c7"/>
+              </linearGradient>
+              <linearGradient id="heroBookMid" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2dd4bf"/>
+                <stop offset="100%" stop-color="#0f766e"/>
+              </linearGradient>
+              <linearGradient id="heroBookBot" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#ea580c"/>
+              </linearGradient>
+              <filter id="heroShadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#032b69" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+
+            <!-- Leaf Accents -->
+            <path d="M 25,45 C 10,25 45,15 55,35 C 45,55 15,55 25,45 Z" fill="#4ade80" opacity="0.9" />
+            <path d="M 195,25 C 215,10 225,35 205,45 C 185,45 185,30 195,25 Z" fill="#22c55e" opacity="0.85" />
+            <path d="M 215,125 C 235,115 238,140 218,150 C 202,145 202,130 215,125 Z" fill="#4ade80" opacity="0.9" />
+
+            <!-- Water Splashes / Bubbles -->
+            <circle cx="35" cy="130" r="14" fill="#ffffff" opacity="0.12"/>
+            <circle cx="50" cy="140" r="8" fill="#ffffff" opacity="0.15"/>
+            <circle cx="210" cy="65" r="10" fill="#ffffff" opacity="0.15"/>
+
+            <!-- Book 3 (Bottom - Orange) -->
+            <g filter="url(#heroShadow)">
+              <polygon points="50,118 165,92 205,112 90,138" fill="url(#heroBookBot)"/>
+              <polygon points="50,118 90,138 90,149 50,129" fill="#c2410c"/>
+              <polygon points="90,138 205,112 205,123 90,149" fill="#fff8f0"/>
+              <line x1="55" y1="120" x2="55" y2="129" stroke="#ffedd5" stroke-width="2"/>
+            </g>
+
+            <!-- Book 2 (Middle - Turquoise) -->
+            <g filter="url(#heroShadow)">
+              <polygon points="65,83 180,58 215,78 100,103" fill="url(#heroBookMid)"/>
+              <polygon points="65,83 100,103 100,113 65,93" fill="#0d9488"/>
+              <polygon points="100,103 215,78 215,88 100,113" fill="#f0fdfa"/>
+              <path d="M 155,63 L 170,95 L 162,91 L 155,95 Z" fill="#fbbf24"/>
+            </g>
+
+            <!-- Book 1 (Top - Blue) -->
+            <g filter="url(#heroShadow)">
+              <polygon points="80,48 190,23 220,43 110,68" fill="url(#heroBookTop)"/>
+              <polygon points="80,48 110,68 110,77 80,57" fill="#0369a1"/>
+              <polygon points="110,68 220,43 220,52 110,77" fill="#f0f9ff"/>
+            </g>
+
+            <!-- Small sparkles -->
+            <circle cx="45" cy="65" r="3" fill="#ffffff"/>
+            <circle cx="170" cy="30" r="2.5" fill="#ffffff"/>
+          </svg>
+        </div>
+
+        <div class="banner-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </section>
+
+      <!-- Grade Filter Tabs -->
+      <section class="filters-section">
+        <div class="grade-tabs">
+          <button class="grade-tab active" data-grade="12">پۆلی ۱۲</button>
+          <button class="grade-tab" data-grade="11">پۆلی ۱۱</button>
+          <button class="grade-tab" data-grade="10">پۆلی ۱۰</button>
+        </div>
+      </section>
+
+      <!-- Section Title Header & Counter -->
+      <section class="section-header">
+        <div class="section-title-wrapper">
+          <span class="accent-bar"></span>
+          <h2 class="section-title" id="sectionTitle">بابەتەکانی پۆلی ۱۲</h2>
+        </div>
+        <span class="subject-count-pill" id="subjectCountPill">۱۰ بابەت</span>
+      </section>
+
+      <!-- Main Subject Grid Container (Matches screenshot) -->
+      <section class="subjects-container" id="subjectsContainer">
+        <div class="subjects-grid" id="subjectsGrid">
+          <!-- Dynamically generated 2-column Subject Cards Injected Here by app.js -->
+        </div>
+
+        <!-- Books Detail Listing Container (Shown when a subject card is clicked) -->
+        <div class="subject-books-wrapper" id="subjectBooksWrapper" style="display: none;">
+          <div class="subject-books-header">
+            <button class="back-to-subjects-btn" id="btnBackToSubjects">
+              <i class="fa-solid fa-chevron-right"></i>
+              <span>گەڕانەوە بۆ بابەتەکان</span>
+            </button>
+            <h3 class="selected-subject-title" id="selectedSubjectTitle">کتێبەکان</h3>
+          </div>
+          <div class="books-grid" id="booksGrid">
+            <!-- Dynamic Books Content -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 2nd HAND MARKETPLACE VIEW (Dasti 2) -->
+    <section class="page-view" id="view-dasti2">
+      <div class="page-title-bar">
+        <h2>بازاڕی کتێبی دەستی دوو</h2>
+      </div>
+      <div id="usedBooksContent">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- CART VIEW (Kart) -->
+    <section class="page-view" id="view-kart">
+      <div class="page-title-bar">
+        <h2>سەبەتەی کڕین</h2>
+      </div>
+      <div id="cartContent">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- ORDERS VIEW (Dawakarikan) -->
+    <section class="page-view" id="view-orders">
+      <div class="page-title-bar">
+        <h2>داواکاریەکانم</h2>
+      </div>
+      <div id="ordersContent">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- PROFILE VIEW (Man) -->
+    <section class="page-view" id="view-profile">
+      <div class="page-title-bar">
+        <h2>ئەکاوبتی من</h2>
+      </div>
+      <div id="profileContent">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Bar (5 Main Tabs matching screenshot) -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="sereki">
+        <i class="fa-solid fa-house"></i>
+        <span>سەرەکی</span>
+      </button>
+      
+      <button class="nav-item" data-view="dasti2">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>دەستی 2</span>
+      </button>
+      
+      <button class="nav-item" data-view="kart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="nav-badge" id="cartNavBadge">2</span>
+        <span>کارت</span>
+      </button>
+      
+      <button class="nav-item" data-view="orders">
+        <i class="fa-regular fa-file-lines"></i>
+        <span>داواکاریەکان</span>
+      </button>
+      
+      <button class="nav-item" data-view="profile">
+        <i class="fa-regular fa-user"></i>
+        <span>من</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- Global Modal Overlay -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card" id="modalBody">
+      <!-- Modal Content Injected Here -->
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
